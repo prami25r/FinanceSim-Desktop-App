@@ -1,1 +1,32 @@
+<<<<<<< HEAD
+const { app, BrowserWindow } = require('electron');
 
+let mainWindow;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
+  mainWindow.loadURL('http://localhost:3000');
+}
+
+app.whenReady().then(createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
+=======
+
+>>>>>>> 050b4291e3b8e75bf73118e2083ba4ad8cb6154b
